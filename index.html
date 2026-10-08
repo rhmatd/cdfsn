@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C-DFS · Kompetensi Masa Depan</title>
+    <meta name="description" content="C-DFS — platform analitik kompetensi dan future skills.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ================================================================
+    LANDING PAGE
+    ================================================================ -->
+    <div class="landing-container" id="landingContainer">
+        <nav class="navbar">
+            <div class="logo-container">
+                <div class="logo-icon"><img src="img/logo-cdfs.png" alt="Logo C-DFS" /></div>
+                <div class="logo-text">
+                    <h1>C-DFS</h1>
+                    <span>Competency Driven<br />Future Skills</span>
+                </div>
+            </div>
+            <div class="nav-links">
+                <!-- Menu Beranda telah dihapus sesuai permintaan -->
+            </div>
+            <div class="nav-actions">
+                <button class="btn-login" id="landingLoginBtn">Masuk <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-content">
+                <div class="badge">Platform Analitik Kompetensi &amp; Masa Depan</div>
+                <h2>C-DFS<br />Kompetensi Hari Ini,<br />Sukses di <span>Masa Depan</span></h2>
+                <p>C-DFS membantu perguruan tinggi dan industri menganalisis kesenjangan kompetensi, memprediksi future skills, serta memberikan rekomendasi kurikulum yang relevan dengan kebutuhan masa depan.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" id="heroExploreBtn">Jelajahi Dashboard <i class="fa-solid fa-arrow-right"></i></button>
+                    <!-- Tombol Lihat Video telah dihapus sesuai permintaan -->
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="dashboard-mockup">
+                    <div class="mockup-header">
+                        <h3>Selamat datang kembali,<br /><strong>Jobseeker</strong></h3>
+                    </div>
+                    <div class="mockup-stats">
+                        <div class="m-stat"><i class="fa-solid fa-book"></i><h4>12</h4><p>Program Studi</p></div>
+                        <div class="m-stat"><i class="fa-solid fa-briefcase"></i><h4>245</h4><p>Kebutuhan Industri</p></div>
+                        <div class="m-stat"><i class="fa-solid fa-bullseye"></i><h4>68%</h4><p>Tingkat Kecocokan</p></div>
+                        <div class="m-stat"><i class="fa-solid fa-thumbs-up"></i><h4>32</h4><p>Rekomendasi</p></div>
+                    </div>
+                    <div class="mockup-chart">
+                        <canvas id="gapChart" width="400" height="150"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="features-header">
+                <h4>Mengapa C-DFS?</h4>
+                <h2>Solusi Cerdas untuk Pendidikan dan Industri</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>Analisis Kebutuhan Industri</h3>
+                    <p>Memetakan skill yang dibutuhkan industri secara real-time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3>Analisis Gap Kompetensi</h3>
+                    <p>Mengidentifikasi kesenjangan antara kurikulum dan kebutuhan industri.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3>Future Skills Forecasting</h3>
+                    <p>Memprediksi skill masa depan berdasarkan tren global.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-book-open"></i></div>
+                    <h3>Rekomendasi Kurikulum</h3>
+                    <p>Memberikan rekomendasi mata kuliah, modul, materi, dan sertifikasi.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-users-rays"></i></div>
+                    <h3>Tracer Study Terintegrasi</h3>
+                    <p>Menghubungkan alumni, industri, dan perguruan tinggi.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ================================================================
+    AUTH CONTAINER (Login / Registrasi)
+    ================================================================ -->
+    <div class="auth-container" id="authContainer">
+        <div class="split-container">
+            <aside class="left-panel">
+                <div class="left-header">
+                    <div class="logo">
+                        <div class="logo-icon"><img src="img/logo-cdfs.png" alt="Logo C-DFS" /></div>
+                        <div class="logo-text">
+                            <strong>C-DFS</strong>
+                            <span>Curriculum &amp; Future Skills</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="left-body">
+                    <h2>Sistem Analisis Kompetensi Kurikulum Terintegrasi</h2>
+                    <p>Pantau gap keahlian lulusan, harmonisasikan kurikulum dengan standar industri global, dan petakan future skills secara presisi.</p>
+                </div>
+                <div class="vertical-stepper" id="global-stepper">
+                    <div class="v-step active" id="step-indicator-1">
+                        <div class="v-step-circle">1</div>
+                        <div class="v-step-text">
+                            <h4>Informasi Diri</h4>
+                            <p>Lengkapi biodata dan asal instansi</p>
+                        </div>
+                    </div>
+                    <div class="v-step" id="step-indicator-2">
+                        <div class="v-step-circle">2</div>
+                        <div class="v-step-text">
+                            <h4>Pilih Peran</h4>
+                            <p>Jobseeker atau Jobprovider</p>
+                        </div>
+                    </div>
+                    <div class="v-step" id="step-indicator-3">
+                        <div class="v-step-circle">3</div>
+                        <div class="v-step-text">
+                            <h4>Registrasi Selesai</h4>
+                            <p>Akun siap digunakan</p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="right-panel">
+                <div class="right-header-nav">
+                    <button class="back-btn" id="btn-back" style="visibility: hidden;">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <button class="back-to-landing" id="backToLandingBtn">
+                        <i class="fa-solid fa-arrow-left"></i> Kembali ke Beranda
+                    </button>
+                </div>
+
+                <div class="form-workspace">
+
+                    <!-- LOGIN -->
+                    <div class="auth-mode-content" id="view-login">
+                        <div class="login-welcome">
+                            <h1>Selamat Datang di C-DFS</h1>
+                            <p>Platform analitik kompetensi dan masa depan untuk pendidikan yang relevan dengan kebutuhan industri.</p>
+                        </div>
+                        <form id="formLogin" action="#">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-envelope icon-left"></i>
+                                    <input type="email" id="loginEmail" placeholder="Masukkan email Anda" required />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Kata Sandi</label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-lock icon-left"></i>
+                                    <input type="password" id="loginPassword" placeholder="Masukkan kata sandi" required />
+                                </div>
+                                <a href="#" class="forgot-link">Lupa kata sandi?</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Masuk <i class="fa-solid fa-arrow-right"></i></button>
+                            <div class="divider">atau</div>
+                            <button type="button" class="btn btn-google">
+                                <i class="fa-brands fa-google" style="font-size:18px; color:#ea4335;"></i>
+                                Masuk dengan Google
+                            </button>
+                            <p class="login-link">
+                                Belum memiliki akun? <a id="switchToRegister">Daftar sekarang</a>
+                            </p>
+                        </form>
+                    </div>
+
+                    <!-- REGISTER STEP 1 -->
+                    <div class="auth-mode-content active" id="view-step-1">
+                        <div class="page-title-section">
+                            <h1>Registrasi Akun</h1>
+                            <p>Mulai perjalanan integrasi masa depan Anda sekarang</p>
+                        </div>
+                        <form id="formRegister" action="#">
+                            <div class="form-group">
+                                <label>Nama Lengkap</label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-id-badge icon-left"></i>
+                                    <input type="text" id="regName" placeholder="Masukkan nama lengkap Anda" required />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Alamat Email Resmi</label>
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-envelope icon-left"></i>
+                                    <input type="email" id="userEmail" placeholder="nama@instansi.ac.id" required />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Instansi / Perusahaan</label>
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-building icon-left"></i>
+                                    <input type="text" id="regInstansi" placeholder="Nama Universitas / Perusahaan" required />
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Lanjutkan <i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                        <p class="login-link">
+                            Sudah memiliki akun? <a id="switchToLogin">Masuk di sini</a>
+                        </p>
+                    </div>
+
+                    <!-- REGISTER STEP 2 - Hanya 2 role -->
+                    <div class="auth-mode-content" id="view-step-2">
+                        <div class="page-title-section">
+                            <h1>Pilih Peran Anda</h1>
+                            <p>Sesuaikan hak akses aplikasi dengan fungsi dan tujuan Anda</p>
+                        </div>
+                        <form id="formRole" action="#">
+                            <div class="role-options-container">
+                                <div class="role-wrapper">
+                                    <input type="radio" name="role" id="role-jobseeker" value="Jobseeker" checked />
+                                    <label for="role-jobseeker" class="role-card">
+                                        <div class="role-icon icon-blue"><i class="fa-solid fa-user-graduate"></i></div>
+                                        <div class="role-text">
+                                            <h4>Jobseeker</h4>
+                                            <p>Mahasiswa / lulusan yang ingin memetakan kompetensi dan peluang kerja.</p>
+                                        </div>
+                                        <div class="radio-circle"></div>
+                                    </label>
+                                </div>
+                                <div class="role-wrapper">
+                                    <input type="radio" name="role" id="role-jobprovider" value="Jobprovider" />
+                                    <label for="role-jobprovider" class="role-card">
+                                        <div class="role-icon icon-purple"><i class="fa-solid fa-building"></i></div>
+                                        <div class="role-text">
+                                            <h4>Jobprovider</h4>
+                                            <p>Industri / perusahaan penyedia lowongan dan kebutuhan kompetensi.</p>
+                                        </div>
+                                        <div class="radio-circle"></div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="security-notice">
+                                <i class="fa-solid fa-shield-check"></i>
+                                <div class="security-text">
+                                    <h4>Personalisasi Dashboard</h4>
+                                    <p>Sistem akan menyesuaikan antarmuka berdasarkan peran yang Anda pilih untuk pengalaman terbaik.</p>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Konfirmasi Peran <i class="fa-solid fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+
+                    <!-- REGISTER STEP 3 (Verifikasi OTP dihapus) -->
+                    <div class="auth-mode-content" id="view-step-3">
+                        <div class="success-container">
+                            <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+                            <h2>Pendaftaran Selesai!</h2>
+                            <p>Selamat, akun Anda telah berhasil dibuat dan dikonfigurasi. Sekarang Anda dapat menggunakan sistem sepenuhnya.</p>
+                            <p class="success-summary" id="regSummary"></p>
+                            <button class="btn btn-primary" id="gotoDashboardBtn">Masuk ke Dashboard <i class="fa-solid fa-right-to-bracket"></i></button>
+                        </div>
+                    </div>
+
+                </div><!-- /form-workspace -->
+            </main>
+        </div>
+    </div>
+
+    <!-- ================================================================
+    DASHBOARD CONTAINER
+    ================================================================ -->
+    <div class="dashboard-container" id="dashboardContainer">
+        <div class="dashboard-layout">
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <div class="logo-icon"><img src="img/logo-cdfs.png" alt="Logo C-DFS" /></div>
+                    <div class="logo-text">
+                        <strong>C-DFS</strong>
+                        <span>Competency Driven<br />Future Skills</span>
+                    </div>
+                </div>
+
+                <nav class="sidebar-nav">
+                    <!-- Menu Jobseeker / umum -->
+                    <a class="nav-item nav-js active" data-target="view-dashboard"><i class="fa-solid fa-house"></i> <span>Dashboard</span></a>
+                    <a class="nav-item nav-js" data-target="view-jobmatch"><i class="fa-solid fa-wand-magic-sparkles"></i> <span>Job Matching</span></a>
+                    <!-- Menu khusus Jobprovider -->
+                    <a class="nav-item nav-jp" data-target="view-jp-dashboard"><i class="fa-solid fa-house"></i> <span>Ringkasan Rekrutmen</span></a>
+                    <a class="nav-item nav-jp" data-target="view-jp-kompetensi"><i class="fa-solid fa-list-check"></i> <span>Kelola Kompetensi</span></a>
+                    <a class="nav-item nav-jp" data-target="view-jp-kandidat"><i class="fa-solid fa-user-check"></i> <span>Rekomendasi Kandidat</span></a>
+                    <a class="nav-item nav-js" data-target="view-industri"><i class="fa-solid fa-briefcase"></i> <span>Kebutuhan Industri &amp; Future Skills</span></a>
+                    <a class="nav-item nav-js" data-target="view-gap"><i class="fa-solid fa-users-viewfinder"></i> <span>Analisis Gap &amp; Kurikulum</span></a>
+                    <a class="nav-item nav-js" data-target="view-tracer"><i class="fa-solid fa-user-graduate"></i> <span>Tracer Study</span></a>
+                    <a class="nav-item nav-js" data-target="view-laporan"><i class="fa-regular fa-file-lines"></i> <span>Laporan</span></a>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <div class="data-source">
+                        <p class="source-title">Sumber Data</p>
+                        <p class="source-desc">Data diambil dari laporan Future of Jobs WEF 2023, LinkedIn, JobStreet Insights, serta sumber terpercaya lainnya.</p>
+                        <div class="source-logos">
+                            <span style="color: #000; font-weight:bold; font-size:10px;"><i class="fa-solid fa-globe"></i> WEF</span>
+                            <span style="color: #1c3faa; font-weight:bold;"><i class="fa-solid fa-briefcase"></i> JobStreet</span>
+                            <span style="color: #0a66c2; font-weight:bold;"><i class="fa-brands fa-linkedin"></i> LinkedIn</span>
+                            <span style="color: #e5252a; font-weight:bold;"><i class="fa-solid fa-star"></i> glints</span>
+                        </div>
+                        <span class="source-update">Terakhir Diperbarui: 19 Mei 2026</span>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="main-content">
+
+                <!-- ========================================================== -->
+                <!-- Halaman 1: DASHBOARD                                       -->
+                <!-- ========================================================== -->
+                <div id="view-dashboard" class="view-section active">
+                    <header class="top-header">
+                        <div class="header-left">
+                            <h1>Dashboard</h1>
+                            <p>Ringkasan analisis keselarasan kurikulum dengan kebutuhan industri</p>
+                        </div>
+                        <div class="header-right">
+                            <div class="date-picker-wrapper">
+                                <span class="date-picker-label">Periode Analisis</span>
+                                <div class="date-picker">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <input type="date" id="dashDateStart" />
+                                    <span>-</span>
+                                    <input type="date" id="dashDateEnd" />
+                                    <i class="fa-solid fa-chevron-down ms-2"></i>
+                                </div>
+                            </div>
+                            <div class="header-actions">
+                                <div class="user-profile" id="userProfile">
+                                    <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                                    <span class="user-name" id="dashUserName">Admin PT</span>
+                                    <i class="fa-solid fa-chevron-down" style="font-size:10px; color:var(--text-muted); cursor:pointer;"></i>
+                                    <div class="dropdown-menu" id="dropdownMenu">
+                                        <a href="#" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="dashboard-body">
+                        <!-- Antarmuka Jobseeker: pilihan Jalur Pendidikan & Program Studi -->
+                        <div class="chart-card jobseeker-card" id="jobseekerDashCard">
+                            <div class="card-header-flex">
+                                <h3 class="card-title"><i class="fa-solid fa-user-graduate text-blue"></i> Jalur Pendidikan &amp; Program Studi</h3>
+                                <span class="badge badge-blue" id="dashProdiBadge">-</span>
+                            </div>
+                            <div class="search-pick-row">
+                                <div class="search-pick" id="pickJalur">
+                                    <label for="pickJalurInput">Jalur Pendidikan</label>
+                                    <div class="search-pick-box">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                        <input type="text" id="pickJalurInput" placeholder="Cari jalur: Akademis / Vocational" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="pickJalurList" />
+                                        <button type="button" class="search-pick-clear" aria-label="Hapus pilihan jalur">&times;</button>
+                                    </div>
+                                    <ul class="search-pick-list" id="pickJalurList" role="listbox"></ul>
+                                </div>
+                                <div class="search-pick" id="pickProdi">
+                                    <label for="pickProdiInput">Program Studi</label>
+                                    <div class="search-pick-box">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                        <input type="text" id="pickProdiInput" placeholder="Cari nama atau kode prodi, mis. TRSE" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="pickProdiList" />
+                                        <button type="button" class="search-pick-clear" aria-label="Hapus pilihan prodi">&times;</button>
+                                    </div>
+                                    <ul class="search-pick-list" id="pickProdiList" role="listbox"></ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stats-grid">
+                            <div class="stat-card"><div class="stat-icon bg-blue-light"><i class="fa-solid fa-building-columns"></i></div><div class="stat-info"><p class="stat-label">Program Studi Dianalisis</p><h3 class="stat-value num-animate">24</h3><p class="stat-desc">Total prodi yang dievaluasi</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-blue-light"><i class="fa-solid fa-briefcase"></i></div><div class="stat-info"><p class="stat-label">Kompetensi Industri Teridentifikasi</p><h3 class="stat-value num-animate">16</h3><p class="stat-desc">Berdasarkan 25.842 lowongan</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-green-light"><i class="fa-solid fa-circle-check"></i></div><div class="stat-info"><p class="stat-label">Tingkat Keselarasan Kurikulum</p><h3 class="stat-value num-animate">70<span>%</span></h3><p class="stat-desc">Rata-rata keselarasan</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-orange-light"><i class="fa-solid fa-lightbulb"></i></div><div class="stat-info"><p class="stat-label">Rekomendasi Kurikulum Baru</p><h3 class="stat-value num-animate">5</h3><p class="stat-desc">Perlu penambahan / penyesuaian</p></div></div>
+                        </div>
+
+                        <div class="charts-grid">
+                            <div class="chart-card flex-1">
+                                <div class="card-header-flex">
+                                    <h3 class="card-title">Keselarasan Kurikulum dengan Industri</h3>
+                                    <div class="custom-legend" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+                                        <div class="legend-item"><div class="dot dot-green"></div> Sudah Selaras <strong style="margin-left:10px;color:#1e293b;">70%</strong></div>
+                                        <div class="legend-item"><div class="dot dot-orange"></div> Sedang Dikembangkan <strong style="margin-left:10px;color:#1e293b;">20%</strong></div>
+                                        <div class="legend-item"><div class="dot dot-red"></div> Perlu Ditingkatkan <strong style="margin-left:10px;color:#1e293b;">10%</strong></div>
+                                    </div>
+                                </div>
+                                <div class="canvas-container donut-container">
+                                    <canvas id="alignmentDonutChart"></canvas>
+                                    <div class="donut-center-text"><strong>70%</strong><span>Keselarasan</span></div>
+                                </div>
+                            </div>
+                            <div class="chart-card flex-1">
+                                <div class="card-header-flex">
+                                    <h3 class="card-title">Rekomendasi Prioritas</h3>
+                                    <button class="icon-btn-small"><i class="fa-solid fa-ellipsis"></i></button>
+                                </div>
+                                <div class="rekom-list">
+                                    <div class="rekom-item"><i class="fa-solid fa-plus-circle"></i><span>Tambahkan mata kuliah Data Analytics Lanjutan</span><span class="badge badge-red">Tinggi</span></div>
+                                    <div class="rekom-item"><i class="fa-solid fa-rotate"></i><span>Perbarui kurikulum Sertifikasi Cloud Computing</span><span class="badge badge-orange">Sedang</span></div>
+                                    <div class="rekom-item"><i class="fa-solid fa-pen-ruler"></i><span>Kembangkan modul Digital Marketing Strategy</span><span class="badge badge-green">Rendah</span></div>
+                                    <div class="rekom-item"><i class="fa-solid fa-shield-halved"></i><span>Tambahkan materi Cybersecurity Essentials</span><span class="badge badge-red">Tinggi</span></div>
+                                </div>
+                                <a href="#" class="btn-link-blue">Lihat Semua Rekomendasi <i class="fa-solid fa-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="table-card">
+                            <div class="card-header-flex"><h3 class="card-title">Ringkasan Kesenjangan per Program Studi</h3><button class="btn-outline-blue" style="margin:0;">Lihat Semua <i class="fa-solid fa-arrow-right"></i></button></div>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead><tr><th>Program Studi</th><th>Jumlah Kompetensi</th><th>Tingkat Keselarasan</th><th>Status</th></tr></thead>
+                                    <tbody>
+                                        <tr><td><strong>Sistem Informasi</strong></td><td>24</td><td><span class="badge badge-green">78%</span></td><td><span class="badge badge-green">Selaras</span></td></tr>
+                                        <tr><td><strong>Teknik Informatika</strong></td><td>22</td><td><span class="badge badge-orange">65%</span></td><td><span class="badge badge-orange">Sedang</span></td></tr>
+                                        <tr><td><strong>Manajemen</strong></td><td>18</td><td><span class="badge badge-red">52%</span></td><td><span class="badge badge-red">Perlu Perbaikan</span></td></tr>
+                                        <tr><td><strong>Akuntansi</strong></td><td>20</td><td><span class="badge badge-green">74%</span></td><td><span class="badge badge-green">Selaras</span></td></tr>
+                                        <tr><td><strong>Desain Komunikasi Visual</strong></td><td>16</td><td><span class="badge badge-orange">60%</span></td><td><span class="badge badge-orange">Sedang</span></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================== -->
+                <!-- JOBSEEKER: JOB MATCHING (analisis AI)                       -->
+                <!-- ========================================================== -->
+                <div id="view-jobmatch" class="view-section">
+                    <header class="top-header">
+                        <div class="header-left"><h1>Job Matching</h1><p>Analisis kecocokan dan peluang Anda pada lowongan dari Jobprovider berdasarkan transkrip nilai dan sertifikat</p></div>
+                        <div class="header-right">
+                            <div class="header-actions">
+                                <div class="user-profile" id="userProfileJm">
+                                    <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                                    <span class="user-name">Jobseeker</span>
+                                    <i class="fa-solid fa-chevron-down" style="font-size:10px; color:var(--text-muted); cursor:pointer;"></i>
+                                    <div class="dropdown-menu"><a href="#" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="dashboard-body">
+                        <div class="jm-steps">
+                            <div class="jm-step"><span>1</span> Upload transkrip nilai (PDF)</div>
+                            <div class="jm-step"><span>2</span> Upload sertifikat BNSP / Non-BNSP</div>
+                            <div class="jm-step"><span>3</span> Analisis AI: lowongan &amp; pekerjaan yang cocok</div>
+                        </div>
+
+                        <div class="stats-grid">
+                            <div class="stat-card"><div class="stat-icon bg-blue-light"><i class="fa-solid fa-user-graduate"></i></div><div class="stat-info"><p class="stat-label">Program Studi</p><h3 class="stat-value jm-stat-text" id="jmStatProdi">-</h3><p class="stat-desc" id="jmStatJalur">Terdeteksi dari transkrip</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-green-light"><i class="fa-solid fa-chart-line"></i></div><div class="stat-info"><p class="stat-label">IPK</p><h3 class="stat-value" id="jmStatIpk">0,00</h3><p class="stat-desc" id="jmStatSks">0 SKS · 0 mata kuliah</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-orange-light"><i class="fa-solid fa-certificate"></i></div><div class="stat-info"><p class="stat-label">Sertifikat</p><h3 class="stat-value" id="jmStatCert">0</h3><p class="stat-desc" id="jmStatCertDetail">0 BNSP · 0 Non-BNSP</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-blue-light"><i class="fa-solid fa-bullseye"></i></div><div class="stat-info"><p class="stat-label">Lowongan Peluang Tinggi</p><h3 class="stat-value" id="jmStatTinggi">-</h3><p class="stat-desc" id="jmStatLowongan">dari 0 lowongan</p></div></div>
+                        </div>
+
+                        <div class="charts-grid jm-input-grid">
+                            <!-- 1. Transkrip -->
+                            <div class="chart-card flex-2">
+                                <div class="card-header-flex">
+                                    <h3 class="card-title"><i class="fa-solid fa-file-pdf text-blue"></i> 1. Transkrip Nilai</h3>
+                                    <span class="badge badge-blue jm-detect-badge is-hidden" id="jmMkSourceBadge">-</span>
+                                </div>
+                                <label class="jm-drop" id="jmDropTranskrip" for="jmFileTranskrip">
+                                    <input type="file" id="jmFileTranskrip" accept="application/pdf,.pdf" hidden />
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    <strong>Upload transkrip / Rekap Hasil Studi (PDF)</strong>
+                                    <span>Seret file ke sini atau klik untuk memilih. Mata kuliah, SKS, nilai, prodi, dan IPK dideteksi otomatis.</span>
+                                </label>
+                                <div class="jm-detect is-hidden" id="jmTranskripInfo"></div>
+
+                                <div class="jm-best is-hidden" id="jmBestBox">
+                                    <p class="jm-sub-title"><i class="fa-solid fa-trophy"></i> Nilai terbaik</p>
+                                    <div class="jm-best-list" id="jmBestList"></div>
+                                </div>
+
+                                <details class="jm-manual" id="jmManual">
+                                    <summary>Lihat / koreksi data mata kuliah (<span id="jmMkCount">0</span>)</summary>
+                                    <form class="jm-row-form" id="formJmMk">
+                                        <input id="jmMkNama" class="jp-input" type="text" placeholder="Nama mata kuliah" required />
+                                        <input id="jmMkSks" class="jp-input" type="number" min="1" max="8" value="3" aria-label="SKS" />
+                                        <select id="jmMkNilai" class="jp-input" aria-label="Nilai huruf">
+                                            <option>A</option><option>A-</option><option>B+</option><option>B</option><option>B-</option><option>C+</option><option>C</option><option>D</option><option>E</option>
+                                        </select>
+                                        <button type="submit" class="jp-btn-sm primary"><i class="fa-solid fa-plus"></i> Tambah</button>
+                                    </form>
+                                    <div class="table-responsive jm-table-wrap">
+                                        <table class="data-table">
+                                            <thead><tr><th>Mata Kuliah</th><th class="text-center" style="width:70px;">SKS</th><th class="text-center" style="width:80px;">Nilai</th><th class="text-center" style="width:60px;"></th></tr></thead>
+                                            <tbody id="jmMkBody"></tbody>
+                                        </table>
+                                    </div>
+                                    <p class="jm-note">Bobot nilai (pedoman UM): A=4 · A-=3,7 · B+=3,3 · B=3 · B-=2,7 · C+=2,3 · C=2 · D=1 · E=0 (AB=3,5 · BC=2,5). Bila transkrip memuat nilai angka (NA), nilai angka yang dipakai.</p>
+                                </details>
+                            </div>
+
+                            <!-- 2. Sertifikat -->
+                            <div class="chart-card flex-1">
+                                <div class="card-header-flex"><h3 class="card-title"><i class="fa-solid fa-certificate text-blue"></i> 2. Sertifikat</h3></div>
+                                <label class="jm-drop jm-drop-sm" id="jmDropCert" for="jmFileCert">
+                                    <input type="file" id="jmFileCert" accept="application/pdf,.pdf,image/png,image/jpeg,image/webp" multiple hidden />
+                                    <i class="fa-solid fa-award"></i>
+                                    <strong>Upload sertifikat (PDF / JPG / PNG)</strong>
+                                    <span>Bisa lebih dari satu. Jenis BNSP / Non-BNSP dan nama skema dideteksi otomatis.</span>
+                                </label>
+                                <div class="jm-cert-list" id="jmCertListView"></div>
+                                <datalist id="jmCertList"></datalist>
+                            </div>
+                        </div>
+
+                        <div class="jm-run-bar">
+                            <div>
+                                <strong>3. Analisis dengan AI</strong>
+                                <span class="jp-muted" id="jmRunHint">Mencocokkan transkrip dan sertifikat Anda dengan lowongan dari Jobprovider.</span>
+                            </div>
+                            <button type="button" class="btn btn-primary jm-run-btn" id="jmRunBtn"><i class="fa-solid fa-wand-magic-sparkles"></i> Analisis dengan AI</button>
+                        </div>
+
+                        <!-- Hasil -->
+                        <div class="jm-results is-hidden" id="jmResults">
+                            <div class="chart-card jm-ai-card">
+                                <div class="card-header-flex">
+                                    <h3 class="card-title"><i class="fa-solid fa-robot text-blue"></i> Ringkasan Analisis AI</h3>
+                                    <span class="badge badge-blue" id="jmAiSource">-</span>
+                                </div>
+                                <div class="jm-ai-text" id="jmAiText"></div>
+                            </div>
+
+                            <div class="chart-card">
+                                <div class="card-header-flex"><h3 class="card-title"><i class="fa-solid fa-briefcase text-blue"></i> Pekerjaan yang Paling Cocok</h3><span class="jp-muted">berdasarkan nilai mata kuliah &amp; sertifikat</span></div>
+                                <div class="jm-role-grid" id="jmRoleGrid"></div>
+                            </div>
+
+                            <div class="card-header-flex jm-results-head">
+                                <h3 class="card-title">Kecocokan per Lowongan</h3>
+                                <div class="segmented" id="jmSort">
+                                    <button type="button" class="seg-btn active" data-sort="peluang">Urut Peluang</button>
+                                    <button type="button" class="seg-btn" data-sort="kecocokan">Urut Kecocokan</button>
+                                </div>
+                            </div>
+                            <div class="jm-job-grid" id="jmJobGrid"></div>
+                            <details class="jm-method">
+                                <summary><i class="fa-solid fa-circle-info"></i> Bagaimana dokumen dibaca dan skor dihitung?</summary>
+                                <ul>
+                                    <li><strong>Transkrip PDF</strong> dibaca langsung di browser (format Rekap Hasil Studi SIAKAD dan transkrip berbasis teks sejenis). Jika tidak terbaca dan API key AI diisi, dokumen dibaca oleh AI. File tidak disimpan di server, hanya data hasil deteksinya.</li>
+                                    <li><strong>Sertifikat</strong> dianggap BNSP bila memuat "BNSP", "Badan Nasional Sertifikasi Profesi", atau "Lembaga Sertifikasi Profesi (LSP)". Sertifikat berupa gambar dibaca oleh AI bila API key diisi; jika tidak, jenis dan nama dapat dikoreksi manual.</li>
+                                    <li><strong>Bukti tiap kompetensi</strong> = nilai tertinggi di antara mata kuliah terkait (nilai/4), sertifikat terkait (BNSP 1,0 · Non-BNSP 0,8), atau profil kompetensi prodi (0,5).</li>
+                                    <li><strong>Kecocokan</strong> = 30% kesesuaian prodi + 70% rata-rata bukti. <strong>Peluang</strong> = 60% kecocokan + 25% IPK/4 + 15% kekuatan sertifikat. Tinggi &ge; 75 · Sedang 50–74 · Rendah &lt; 50.</li>
+                                    <li><strong>Pekerjaan yang cocok</strong> = rata-rata bukti terhadap kompetensi inti tiap profil pekerjaan.</li>
+                                </ul>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================== -->
+                <!-- JOBPROVIDER 1: RINGKASAN REKRUTMEN                          -->
+                <!-- ========================================================== -->
+                <div id="view-jp-dashboard" class="view-section">
+                    <header class="top-header">
+                        <div class="header-left"><h1>Ringkasan Rekrutmen</h1><p>Pantau kompetensi yang Anda butuhkan dan kandidat yang paling sesuai</p></div>
+                        <div class="header-right">
+                            <div class="header-actions">
+                                <div class="user-profile" id="userProfileJp1">
+                                    <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                                    <span class="user-name">Jobprovider</span>
+                                    <i class="fa-solid fa-chevron-down" style="font-size:10px; color:var(--text-muted); cursor:pointer;"></i>
+                                    <div class="dropdown-menu"><a href="#" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="dashboard-body">
+                        <div class="chart-card jp-profile-card">
+                            <div class="jp-profile-main">
+                                <div class="jp-company-avatar"><i class="fa-solid fa-building"></i></div>
+                                <div>
+                                    <h3 class="jp-company-name" id="jpCompanyName">Perusahaan</h3>
+                                    <p class="jp-company-meta">Akun Jobprovider</p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-outline-blue jp-goto" data-goto="view-jp-kompetensi" style="margin:0;"><i class="fa-solid fa-plus"></i> Tambah Kompetensi</button>
+                        </div>
+
+                        <div class="stats-grid jp-stats-3">
+                            <div class="stat-card"><div class="stat-icon bg-blue-light"><i class="fa-solid fa-list-check"></i></div><div class="stat-info"><p class="stat-label">Kompetensi Dibutuhkan</p><h3 class="stat-value" id="jpStatKompetensi">0</h3><p class="stat-desc" id="jpStatProdi">untuk 0 program studi</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-green-light"><i class="fa-solid fa-user-check"></i></div><div class="stat-info"><p class="stat-label">Kandidat Cocok</p><h3 class="stat-value" id="jpStatKandidat">0</h3><p class="stat-desc">Skor kecocokan &ge; 60%</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-orange-light"><i class="fa-solid fa-bookmark"></i></div><div class="stat-info"><p class="stat-label">Kandidat di-Shortlist</p><h3 class="stat-value" id="jpStatShortlist">0</h3><p class="stat-desc">Siap dihubungi</p></div></div>
+                        </div>
+
+                        <div class="charts-grid">
+                            <div class="chart-card flex-1">
+                                <div class="card-header-flex"><h3 class="card-title">Kompetensi per Program Studi</h3><span class="jp-muted">jumlah kompetensi</span></div>
+                                <div class="jp-prodi-bars" id="jpProdiBars"></div>
+                            </div>
+                            <div class="table-card flex-2">
+                                <div class="card-header-flex"><h3 class="card-title">Kandidat Teratas</h3><button class="btn-outline-blue jp-goto" data-goto="view-jp-kandidat" style="margin:0;">Lihat Semua <i class="fa-solid fa-arrow-right"></i></button></div>
+                                <div class="table-responsive">
+                                    <table class="data-table">
+                                        <thead><tr><th>Nama</th><th>Program Studi</th><th class="text-center">Kecocokan</th><th class="text-center">Status</th></tr></thead>
+                                        <tbody id="jpTopBody"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================== -->
+                <!-- JOBPROVIDER 2: KELOLA KOMPETENSI                            -->
+                <!-- ========================================================== -->
+                <div id="view-jp-kompetensi" class="view-section">
+                    <header class="top-header">
+                        <div class="header-left"><h1>Kelola Kompetensi</h1><p>Daftarkan kompetensi yang dibutuhkan perusahaan Anda</p></div>
+                        <div class="header-right">
+                            <div class="header-actions">
+                                <div class="user-profile" id="userProfileJp2">
+                                    <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                                    <span class="user-name">Jobprovider</span>
+                                    <i class="fa-solid fa-chevron-down" style="font-size:10px; color:var(--text-muted); cursor:pointer;"></i>
+                                    <div class="dropdown-menu"><a href="#" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="dashboard-body">
+                        <div class="chart-card">
+                            <form id="formJpKompetensi" class="jp-komp-form">
+                                <div class="jp-field">
+                                    <label for="jpKompNama">Nama Kompetensi</label>
+                                    <input id="jpKompNama" class="jp-input" type="text" placeholder="Contoh: Mikrokontroler" required />
+                                </div>
+                                <div class="jp-field">
+                                    <label for="jpKompProdi">Program Studi Terkait</label>
+                                    <select id="jpKompProdi" class="jp-input" required></select>
+                                </div>
+                                <button type="submit" class="btn-primary jp-komp-add"><i class="fa-solid fa-plus"></i> Tambah</button>
+                            </form>
+                            <div class="jp-suggest" id="jpKompSuggest"></div>
+                        </div>
+
+                        <div class="table-card">
+                            <div class="card-header-flex"><h3 class="card-title">Daftar Kompetensi</h3><span class="jp-muted" id="jpKompCount">0 kompetensi</span></div>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead><tr><th class="text-center" style="width:50px;">No</th><th>Kompetensi</th><th>Program Studi</th><th class="text-center" style="width:90px;">Aksi</th></tr></thead>
+                                    <tbody id="jpKompBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================== -->
+                <!-- JOBPROVIDER 3: REKOMENDASI KANDIDAT                         -->
+                <!-- ========================================================== -->
+                <div id="view-jp-kandidat" class="view-section">
+                    <header class="top-header">
+                        <div class="header-left"><h1>Rekomendasi Kandidat</h1><p>Jobseeker yang paling sesuai dengan kompetensi yang Anda butuhkan</p></div>
+                        <div class="header-right">
+                            <div class="header-actions">
+                                <div class="user-profile" id="userProfileJp3">
+                                    <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                                    <span class="user-name">Jobprovider</span>
+                                    <i class="fa-solid fa-chevron-down" style="font-size:10px; color:var(--text-muted); cursor:pointer;"></i>
+                                    <div class="dropdown-menu"><a href="#" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="dashboard-body">
+                        <div class="chart-card jp-toolbar">
+                            <div class="jp-field">
+                                <label for="jpFilterProdi">Program Studi</label>
+                                <select id="jpFilterProdi" class="jp-input"></select>
+                            </div>
+                            <div class="jp-field">
+                                <label for="jpFilterSkor">Skor Minimal</label>
+                                <select id="jpFilterSkor" class="jp-input">
+                                    <option value="0">Semua kandidat</option>
+                                    <option value="40">&ge; 40%</option>
+                                    <option value="60" selected>&ge; 60%</option>
+                                    <option value="80">&ge; 80%</option>
+                                </select>
+                            </div>
+                            <label class="jp-toggle"><input type="checkbox" id="jpHanyaShortlist" /> Hanya shortlist</label>
+                        </div>
+                        <div class="jp-method-note">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span><strong>Cara skor dihitung:</strong> 40% jika prodi kandidat termasuk prodi pada daftar kompetensi Anda + 60% porsi kompetensi Anda yang ada di profil kompetensi prodi kandidat.</span>
+                        </div>
+                        <div class="jp-candidate-grid" id="jpCandidateGrid"></div>
+                    </div>
+                </div>
+
+                <!-- ========================================================== -->
+                <!-- Halaman 2: KEBUTUHAN INDUSTRI & FUTURE SKILLS (digabung)      -->
+                <!-- ========================================================== -->
+                <div id="view-industri" class="view-section">
+                    <header class="top-header">
+                        <div class="header-left"><h1>Kebutuhan Industri &amp; Future Skills</h1><p>Kebutuhan kompetensi saat ini dan prediksi keterampilan masa depan</p></div>
+                        <div class="header-right">
+                            <div class="date-picker">
+                                <i class="fa-regular fa-calendar"></i>
+                                <input type="date" id="industriDate" />
+                                <i class="fa-solid fa-chevron-down ms-2"></i>
+                            </div>
+                            <div class="header-actions">
+                                <div class="user-profile" id="userProfile2">
+                                    <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                                    <span class="user-name">Admin PT</span>
+                                    <i class="fa-solid fa-chevron-down" style="font-size:10px; color:var(--text-muted); cursor:pointer;"></i>
+                                    <div class="dropdown-menu"><a href="#" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="dashboard-body">
+                        <div class="page-tabs" data-group="ind" role="tablist"><button type="button" class="tab-btn active" data-tab="industri"><i class="fa-solid fa-briefcase"></i> Kebutuhan Industri</button><button type="button" class="tab-btn" data-tab="future"><i class="fa-solid fa-bolt"></i> Future Skills</button></div>
+                        <div class="tab-panel active" data-group="ind" data-panel="industri">
+                        <div class="stats-grid jp-stats-3">
+                            <div class="stat-card"><div class="stat-icon bg-blue-50 text-blue"><i class="fa-solid fa-briefcase"></i></div><div class="stat-info"><p class="stat-label">Total Lowongan</p><h3 class="stat-value num-animate">25.842</h3><p class="stat-trend positive"><i class="fa-solid fa-arrow-trend-up"></i> +12,4%</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-blue-50 text-blue"><i class="fa-regular fa-building"></i></div><div class="stat-info"><p class="stat-label">Perusahaan Aktif</p><h3 class="stat-value num-animate">8.153</h3><p class="stat-trend positive"><i class="fa-solid fa-arrow-trend-up"></i> +8,7%</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-blue-50 text-blue"><i class="fa-solid fa-chart-pie"></i></div><div class="stat-info"><p class="stat-label">Bidang Pekerjaan</p><h3 class="stat-value num-animate">28</h3><p class="stat-trend neutral">Stabil</p></div></div>
+                        </div>
+                        <div class="charts-grid">
+                            <div class="chart-card flex-2"><div class="card-header-flex"><h3 class="card-title">Top 10 Skill yang Paling Dibutuhkan</h3><button class="icon-btn-small"><i class="fa-solid fa-ellipsis"></i></button></div><div class="canvas-container"><canvas id="skillsBarChart"></canvas></div></div>
+                            <div class="chart-card flex-1"><div class="card-header-flex"><h3 class="card-title">Sumber Lowongan</h3><button class="icon-btn-small"><i class="fa-solid fa-ellipsis"></i></button></div><div class="canvas-container donut-container"><canvas id="sourceDonutChart"></canvas><div class="donut-center-text"><strong style="font-size:24px;">25.842</strong><span>Total</span></div></div></div>
+                        </div>
+                        <div class="table-card">
+                            <div class="card-header-flex"><h3 class="card-title">Kebutuhan Berdasarkan Bidang Pekerjaan</h3><button class="btn-outline-blue" style="margin:0;">Lihat Semua <i class="fa-solid fa-arrow-right"></i></button></div>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead><tr><th>Bidang Pekerjaan</th><th>Total Lowongan</th><th>Persentase</th></tr></thead>
+                                    <tbody>
+                                        <tr><td><strong>Digital Marketing</strong></td><td>3.892</td><td><span class="badge badge-blue">15,1%</span></td></tr>
+                                        <tr><td><strong>Data / Business Analyst</strong></td><td>3.215</td><td><span class="badge badge-blue">12,4%</span></td></tr>
+                                        <tr><td><strong>IT / Software Dev</strong></td><td>3.108</td><td><span class="badge badge-blue">12,0%</span></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="tab-panel" data-group="ind" data-panel="future">
+                        <div class="stats-grid">
+                            <div class="stat-card"><div class="stat-icon bg-blue-light text-blue"><i class="fa-solid fa-arrow-trend-up"></i></div><div class="stat-info"><p class="stat-label">Total Future Skills</p><h3 class="stat-value num-animate">50</h3><p class="stat-desc">Keterampilan masa depan</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-green-light text-green"><i class="fa-solid fa-arrow-trend-up"></i></div><div class="stat-info"><p class="stat-label">Rata-rata Pertumbuhan</p><h3 class="stat-value num-animate">27,4%</h3><p class="stat-desc">CAGR 2025-2030</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-orange-light text-orange"><i class="fa-solid fa-briefcase"></i></div><div class="stat-info"><p class="stat-label">Peningkatan Tertinggi</p><h3 class="stat-value" style="font-size:18px;">AI &amp; Big Data</h3><p class="stat-desc text-green" style="font-weight:600;">(71,8%)</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-red-light text-red"><i class="fa-solid fa-users"></i></div><div class="stat-info"><p class="stat-label">Sumber Data</p><h3 class="stat-value num-animate">5</h3><p class="stat-desc">Lembaga &amp; Platform</p></div></div>
+                        </div>
+                        <div class="charts-grid">
+                            <div class="chart-card flex-1">
+                                <h3 class="card-title mb-4">Top 10 Future Skills (Pertumbuhan Tertinggi)</h3>
+                                <div class="top-skills-list">
+                                    <div class="skill-item" style="color:var(--text-muted);font-weight:600;margin-bottom:4px;"><div class="skill-no">No</div><div class="skill-name">Future Skills</div><div class="skill-bar-wrapper"></div><div class="skill-percent" style="width:auto;">Pertumbuhan</div></div>
+                                    <div class="skill-item"><div class="skill-no">1</div><div class="skill-name">AI &amp; Big Data</div><div class="skill-bar-wrapper"><div class="skill-bar" style="width:100%;"></div></div><div class="skill-percent">71,8%</div></div>
+                                    <div class="skill-item"><div class="skill-no">2</div><div class="skill-name">Cybersecurity</div><div class="skill-bar-wrapper"><div class="skill-bar" style="width:85%;"></div></div><div class="skill-percent">61,3%</div></div>
+                                    <div class="skill-item"><div class="skill-no">3</div><div class="skill-name">Green Economy</div><div class="skill-bar-wrapper"><div class="skill-bar" style="width:80%;"></div></div><div class="skill-percent">58,7%</div></div>
+                                    <div class="skill-item"><div class="skill-no">4</div><div class="skill-name">Digital Marketing</div><div class="skill-bar-wrapper"><div class="skill-bar" style="width:72%;"></div></div><div class="skill-percent">52,4%</div></div>
+                                    <div class="skill-item"><div class="skill-no">5</div><div class="skill-name">Automation &amp; Robotics</div><div class="skill-bar-wrapper"><div class="skill-bar" style="width:65%;"></div></div><div class="skill-percent">48,6%</div></div>
+                                    <div class="skill-item"><div class="skill-no">6</div><div class="skill-name">Data Analytics</div><div class="skill-bar-wrapper"><div class="skill-bar" style="width:62%;"></div></div><div class="skill-percent">46,3%</div></div>
+                                    <div class="skill-item"><div class="skill-no">7</div><div class="skill-name">Cloud Computing</div><div class="skill-bar-wrapper"><div class="skill-bar" style="width:60%;"></div></div><div class="skill-percent">45,1%</div></div>
+                                    <div class="skill-item"><div class="skill-no">8</div><div class="skill-name">Product Management</div><div class="skill-bar-wrapper"><div class="skill-bar" style="width:55%;"></div></div><div class="skill-percent">41,7%</div></div>
+                                    <div class="skill-item"><div class="skill-no">9</div><div class="skill-name">UX/UI Design</div><div class="skill-bar-wrapper"><div class="skill-bar" style="width:50%;"></div></div><div class="skill-percent">38,9%</div></div>
+                                    <div class="skill-item"><div class="skill-no">10</div><div class="skill-name">Leadership</div><div class="skill-bar-wrapper"><div class="skill-bar" style="width:48%;"></div></div><div class="skill-percent">37,8%</div></div>
+                                </div>
+                                <a href="#" class="btn-link-blue">Lihat Semua Future Skills <i class="fa-solid fa-arrow-right ms-2"></i></a>
+                            </div>
+                            <div class="chart-card flex-2"><h3 class="card-title mb-4">Tren Pertumbuhan Future Skills (2025-2030)</h3><div class="canvas-container"><canvas id="trendLineChart"></canvas></div></div>
+                        </div>
+                        <div class="table-card">
+                            <h3 class="card-title mb-4">Detail Future Skills Forecasting</h3>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead><tr><th class="text-center" style="width:50px;">No</th><th>Future Skills</th><th>Kategori</th><th class="text-center">Permintaan 2025</th><th class="text-center">Prediksi 2030</th><th class="text-center">Pertumbuhan (2025-2030)</th><th class="text-center">Tingkat Prioritas</th></tr></thead>
+                                    <tbody>
+                                        <tr><td class="text-center">1</td><td><strong>AI &amp; Big Data</strong></td><td>Technology Skills</td><td class="text-center">18,2%</td><td class="text-center">31,3%</td><td class="text-center" style="color:var(--match-green);font-weight:700;">+71,8%</td><td class="text-center"><span class="badge badge-green">Sangat Tinggi</span></td></tr>
+                                        <tr><td class="text-center">2</td><td><strong>Cybersecurity</strong></td><td>Technology Skills</td><td class="text-center">12,4%</td><td class="text-center">20,0%</td><td class="text-center" style="color:var(--match-green);font-weight:700;">+61,3%</td><td class="text-center"><span class="badge badge-green">Sangat Tinggi</span></td></tr>
+                                        <tr><td class="text-center">3</td><td><strong>Green Economy</strong></td><td>Human Skills</td><td class="text-center">8,7%</td><td class="text-center">13,8%</td><td class="text-center" style="color:var(--warn-orange);font-weight:700;">+58,7%</td><td class="text-center"><span class="badge badge-orange">Tinggi</span></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================== -->
+                <!-- Halaman 3: ANALISIS GAP & KURIKULUM (digabung)                -->
+                <!-- ========================================================== -->
+                <div id="view-gap" class="view-section">
+                    <header class="top-header">
+                        <div class="header-left"><h1>Analisis Gap &amp; Kurikulum</h1><p>Gap kompetensi, rekomendasi kurikulum, dan peta kompetensi dalam satu halaman</p></div>
+                        <div class="header-right">
+                            <div class="date-picker-wrapper"><span class="date-picker-label">Periode Analisis</span>
+                                <div class="date-picker">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <input type="date" id="gapDateStart" />
+                                    <span>-</span>
+                                    <input type="date" id="gapDateEnd" />
+                                    <i class="fa-solid fa-chevron-down ms-2"></i>
+                                </div>
+                            </div>
+                            <div class="header-actions">
+                                <div class="user-profile" id="userProfile3">
+                                    <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                                    <span class="user-name">Dosen / Prodi</span>
+                                    <i class="fa-solid fa-chevron-down" style="font-size:10px; color:var(--text-muted); cursor:pointer;"></i>
+                                    <div class="dropdown-menu"><a href="#" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="dashboard-body">
+                        <div class="page-tabs" data-group="gap" role="tablist"><button type="button" class="tab-btn active" data-tab="gap"><i class="fa-solid fa-users-viewfinder"></i> Analisis Gap</button><button type="button" class="tab-btn" data-tab="rekomendasi"><i class="fa-regular fa-thumbs-up"></i> Rekomendasi Kurikulum</button><button type="button" class="tab-btn" data-tab="kurikulum"><i class="fa-solid fa-book-open"></i> Kurikulum / Peta</button></div>
+                        <div class="tab-panel active" data-group="gap" data-panel="gap">
+                        <div class="stats-grid">
+                            <div class="stat-card"><div class="stat-icon bg-blue-light"><i class="fa-solid fa-briefcase"></i></div><div class="stat-info"><p class="stat-label">Total Kompetensi Industri</p><h3 class="stat-value num-animate">120</h3><p class="stat-desc">Berdasarkan 25.842 lowongan</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-green-light"><i class="fa-solid fa-book-open"></i></div><div class="stat-info"><p class="stat-label">Kompetensi yang Dimiliki</p><h3 class="stat-value num-animate">85</h3><p class="stat-desc">Berdasarkan kurikulum saat ini</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-orange-light"><i class="fa-solid fa-arrow-trend-up"></i></div><div class="stat-info"><p class="stat-label">Kompetensi Sesuai</p><h3 class="stat-value num-animate">58 <span>(48,3%)</span></h3><p class="stat-desc">Sudah sesuai kebutuhan</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-red-light"><i class="fa-solid fa-bullseye"></i></div><div class="stat-info"><p class="stat-label">Kompetensi Gap</p><h3 class="stat-value num-animate">62 <span class="text-red">(51,7%)</span></h3><p class="stat-desc">Perlu penguatan / pengembangan</p></div></div>
+                        </div>
+                        <div class="charts-grid">
+                            <div class="chart-card flex-1"><div class="card-header-flex"><h3 class="card-title">Ringkasan Gap</h3><div class="custom-legend" style="flex-direction:column;align-items:flex-start;gap:8px;"><div class="legend-item"><div class="dot dot-green"></div> Sesuai <strong style="margin-left:10px;color:#1e293b;">48,3%</strong></div><div class="legend-item"><div class="dot dot-red"></div> Gap <strong style="margin-left:23px;color:#1e293b;">51,7%</strong></div></div></div><div class="canvas-container donut-container"><canvas id="gapDonutChart"></canvas><div class="donut-center-text"><strong>51,7%</strong><span>Gap</span></div></div></div>
+                            <div class="chart-card flex-2"><div class="card-header-flex"><h3 class="card-title">Gap per Kategori</h3><div class="custom-legend"><div class="legend-item"><div class="dot dot-green"></div> Sesuai</div><div class="legend-item"><div class="dot dot-red"></div> Gap</div></div></div><div class="canvas-container"><canvas id="gapStackedBarChart"></canvas></div></div>
+                        </div>
+                        <div class="table-card">
+                            <h3 class="card-title mb-4">Detail Gap Kompetensi</h3>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead><tr><th style="width:50px;" class="text-center">No</th><th>Kompetensi</th><th>Kategori</th><th class="text-center">Gap</th><th class="text-center">Level Gap</th><th>Rekomendasi</th></tr></thead>
+                                    <tbody>
+                                        <tr><td class="text-center">1</td><td><strong>Data Analysis</strong></td><td>Data Skills</td><td class="text-center text-red" style="font-weight:700;">-18,4%</td><td class="text-center"><span class="badge badge-red">Tinggi</span></td><td>Perlu penguatan</td></tr>
+                                        <tr><td class="text-center">2</td><td><strong>Digital Marketing</strong></td><td>Marketing Skills</td><td class="text-center text-red" style="font-weight:700;">-26,1%</td><td class="text-center"><span class="badge badge-red">Tinggi</span></td><td>Perlu penguatan</td></tr>
+                                        <tr><td class="text-center">3</td><td><strong>Problem Solving</strong></td><td>Soft Skills</td><td class="text-center text-green" style="font-weight:700;">-9,2%</td><td class="text-center"><span class="badge badge-green">Rendah</span></td><td>Pertahankan</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="tab-panel" data-group="gap" data-panel="rekomendasi">
+                        <div class="tab-panel-actions"><button class="btn-outline-blue" id="unduhRekomendasiBtn" style="margin:0;"><i class="fa-solid fa-download"></i> Unduh Rekomendasi</button></div>
+                        <div class="stats-grid">
+                            <div class="stat-card" style="align-items:center;"><div class="stat-icon bg-blue-light text-blue"><i class="fa-solid fa-book-open"></i></div><div class="stat-info"><p class="stat-label">Mata Kuliah Direkomendasikan</p><h3 class="stat-value num-animate">18</h3><p class="stat-desc">12 baru, 6 penyesuaian</p></div></div>
+                            <div class="stat-card" style="align-items:center;"><div class="stat-icon bg-green-light text-green"><i class="fa-solid fa-book"></i></div><div class="stat-info"><p class="stat-label">Modul Pembelajaran</p><h3 class="stat-value num-animate">36</h3><p class="stat-desc">24 baru, 12 penyesuaian</p></div></div>
+                            <div class="stat-card" style="align-items:center;"><div class="stat-icon bg-orange-light text-orange"><i class="fa-solid fa-file-lines"></i></div><div class="stat-info"><p class="stat-label">Materi / Topik</p><h3 class="stat-value num-animate">142</h3><p class="stat-desc">Topik penting untuk dipelajari</p></div></div>
+                            <div class="stat-card" style="align-items:center;"><div class="stat-icon bg-blue-light" style="background:#f3e8ff;color:#a855f7;"><i class="fa-solid fa-arrow-trend-up"></i></div><div class="stat-info"><p class="stat-label">Tingkat Kesesuaian</p><h3 class="stat-value num-animate">76%</h3><p class="stat-desc">Kurikulum saat ini</p></div></div>
+                        </div>
+                        <div class="table-card">
+                            <h3 class="card-title mb-4">Rekomendasi Mata Kuliah</h3>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead><tr><th class="text-center" style="width:40px;">No</th><th>Mata Kuliah</th><th>Kategori Kompetensi</th><th class="text-center">Tingkat Prioritas</th><th style="width:25%;">Alasan Rekomendasi</th><th class="text-center">Sumber Data</th><th class="text-center">Tingkat Kebutuhan<br><span style="font-size:10px;font-weight:400;">(2025)</span></th><th class="text-center">Gap Kompetensi</th><th class="text-center">Aksi</th></tr></thead>
+                                    <tbody>
+                                        <tr><td class="text-center">1</td><td><strong>Data Analytics</strong></td><td>Data Skills</td><td class="text-center"><span class="badge badge-green">Sangat Tinggi</span></td><td><span class="desc-text">Permintaan naik 46% dalam 2 tahun terakhir di Indonesia</span></td><td class="text-center source-mini-icons"><i class="fa-brands fa-linkedin text-blue"></i><i class="fa-solid fa-briefcase text-blue"></i></td><td class="text-center font-weight-bold">12.458</td><td class="text-center text-red" style="font-weight:600;">-18,4%</td><td class="text-center"><a href="#" class="btn-detail">Detail</a></td></tr>
+                                        <tr><td class="text-center">2</td><td><strong>Machine Learning Fundamentals</strong></td><td>Technology Skills</td><td class="text-center"><span class="badge badge-green">Sangat Tinggi</span></td><td><span class="desc-text">Termasuk 5 besar skill dengan pertumbuhan tercepat (61%)</span></td><td class="text-center source-mini-icons"><i class="fa-brands fa-linkedin text-blue"></i><i class="fa-solid fa-briefcase text-blue"></i><i class="fa-solid fa-star text-orange"></i></td><td class="text-center font-weight-bold">8.732</td><td class="text-center text-red" style="font-weight:600;">-22,7%</td><td class="text-center"><a href="#" class="btn-detail">Detail</a></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <a href="#" class="btn-link-blue">Lihat Semua Rekomendasi Mata Kuliah <i class="fa-solid fa-arrow-right ms-2"></i></a>
+                        </div>
+                        </div>
+                        <div class="tab-panel" data-group="gap" data-panel="kurikulum">
+                        <div class="stats-grid">
+                            <div class="stat-card"><div class="stat-icon bg-blue-light"><i class="fa-solid fa-briefcase"></i></div><div class="stat-info"><p class="stat-label">Total Kompetensi Industri</p><h3 class="stat-value num-animate">120</h3><p class="stat-desc">Berdasarkan 25.842 lowongan</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-green-light"><i class="fa-solid fa-book-open"></i></div><div class="stat-info"><p class="stat-label">Kompetensi di Kurikulum Saat Ini</p><h3 class="stat-value num-animate">85 <span>(70,8%)</span></h3><p class="stat-desc">Sudah tercakup</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-orange-light"><i class="fa-solid fa-arrow-trend-up"></i></div><div class="stat-info"><p class="stat-label">Kompetensi Perlu Diperkuat</p><h3 class="stat-value num-animate">22 <span>(18,3%)</span></h3><p class="stat-desc">Perlu penguatan</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-red-light"><i class="fa-solid fa-plus-circle"></i></div><div class="stat-info"><p class="stat-label">Kompetensi Baru</p><h3 class="stat-value num-animate">13 <span>(10,9%)</span></h3><p class="stat-desc">Perlu penambahan</p></div></div>
+                        </div>
+                        <div class="charts-grid">
+                            <div class="chart-card flex-1"><div class="card-header-flex"><h3 class="card-title">Peta Kompetensi per Domain</h3></div><div class="canvas-container"><canvas id="domainRadarChart"></canvas></div></div>
+                            <div class="chart-card flex-2"><div class="card-header-flex"><h3 class="card-title">Pemetaan Kompetensi (Kurikulum vs Industri)</h3><div class="custom-legend"><div class="legend-item"><div class="dot dot-blue"></div> Kurikulum</div><div class="legend-item"><div class="dot dot-green"></div> Industri</div></div></div><div class="canvas-container"><canvas id="kurikulumVsIndustriChart"></canvas></div></div>
+                        </div>
+                        <div class="table-card">
+                            <div class="card-header-flex"><h3 class="card-title">Peta Kompetensi Detail (Top Kompetensi Prioritas)</h3><button class="btn-outline-blue" style="margin:0;">Lihat Detail Pemetaan <i class="fa-solid fa-arrow-right"></i></button></div>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead><tr><th class="text-center" style="width:40px;">No</th><th>Kompetensi</th><th>Domain</th><th class="text-center">Tingkat Kebutuhan (Industri)</th><th class="text-center">Kompetensi di Kurikulum Saat Ini</th><th class="text-center">Gap</th><th class="text-center">Prioritas</th><th>Rekomendasi</th></tr></thead>
+                                    <tbody>
+                                        <tr><td class="text-center">1</td><td><strong>Data Analytics</strong></td><td>Data &amp; Analytics</td><td class="text-center font-weight-bold">12.458 lowongan</td><td class="text-center"><span class="badge badge-orange">Pemula (80%)</span></td><td class="text-center text-red" style="font-weight:700;">-18,4%</td><td class="text-center"><span class="badge badge-green">Sangat Tinggi</span></td><td>Perlu penambahan mata kuliah &amp; modul</td></tr>
+                                        <tr><td class="text-center">2</td><td><strong>SQL &amp; Database Management</strong></td><td>Data &amp; Analytics</td><td class="text-center font-weight-bold">8.732 lowongan</td><td class="text-center"><span class="badge badge-orange">Sedang (60%)</span></td><td class="text-center text-red" style="font-weight:700;">-12,8%</td><td class="text-center"><span class="badge badge-green">Sangat Tinggi</span></td><td>Perlu penguatan materi praktikum</td></tr>
+                                        <tr><td class="text-center">3</td><td><strong>Python Programming</strong></td><td>Software Development</td><td class="text-center font-weight-bold">11.976 lowongan</td><td class="text-center"><span class="badge badge-green">Tinggi (60%)</span></td><td class="text-center text-green" style="font-weight:700;">-4,2%</td><td class="text-center"><span class="badge badge-orange">Sedang</span></td><td>Pertahankan &amp; update materi</td></tr>
+                                        <tr><td class="text-center">4</td><td><strong>Cybersecurity Fundamentals</strong></td><td>Cybersecurity</td><td class="text-center font-weight-bold">6.921 lowongan</td><td class="text-center"><span class="badge badge-red">Pemula (25%)</span></td><td class="text-center text-red" style="font-weight:700;">-25,6%</td><td class="text-center"><span class="badge badge-green">Sangat Tinggi</span></td><td>Perlu penambahan mata kuliah baru</td></tr>
+                                        <tr><td class="text-center">5</td><td><strong>Cloud Computing (AWS/GCP)</strong></td><td>Digital Skills &amp; Tools</td><td class="text-center font-weight-bold">5.643 lowongan</td><td class="text-center"><span class="badge badge-red">Pemula (30%)</span></td><td class="text-center text-red" style="font-weight:700;">-27,1%</td><td class="text-center"><span class="badge badge-green">Sangat Tinggi</span></td><td>Perlu penambahan mata kuliah baru</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <a href="#" class="btn-link-blue">Lihat Detail Pemetaan <i class="fa-solid fa-arrow-right ms-2"></i></a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================== -->
+                <!-- Halaman 7: TRACER STUDY                                     -->
+                <!-- ========================================================== -->
+                <div id="view-tracer" class="view-section">
+                    <header class="top-header">
+                        <div class="header-left"><h1>Tracer Study / Ringkasan</h1><p>Tracker Study Universitas Negeri Malang - Program Studi S1 Pendidikan Teknik Informatika</p></div>
+                        <div class="header-right">
+                            <div class="date-picker-wrapper"><span class="date-picker-label">Periode Lulusan</span>
+                                <div class="date-picker">
+                                    <i class="fa-regular fa-calendar"></i>
+                                    <input type="date" id="tracerDateStart" />
+                                    <span>-</span>
+                                    <input type="date" id="tracerDateEnd" />
+                                    <i class="fa-solid fa-chevron-down ms-2"></i>
+                                </div>
+                            </div>
+                            <div class="header-actions">
+                                <div class="user-profile" id="userProfile7">
+                                    <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                                    <span class="user-name">Dosen / Prodi</span>
+                                    <i class="fa-solid fa-chevron-down" style="font-size:10px; color:var(--text-muted); cursor:pointer;"></i>
+                                    <div class="dropdown-menu"><a href="#" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="dashboard-body">
+                        <div class="stats-grid">
+                            <div class="stat-card"><div class="stat-icon bg-blue-light"><i class="fa-solid fa-users"></i></div><div class="stat-info"><p class="stat-label">Tingkat Responden</p><h3 class="stat-value num-animate">457 <span>dari 642 lulusan</span></h3><p class="stat-desc">71,18%</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-green-light"><i class="fa-solid fa-briefcase"></i></div><div class="stat-info"><p class="stat-label">Lulusan Bekerja</p><h3 class="stat-value num-animate">339 <span>dari 457 responden</span></h3><p class="stat-desc">74,18%</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-orange-light"><i class="fa-solid fa-graduation-cap"></i></div><div class="stat-info"><p class="stat-label">Melanjutkan Studi</p><h3 class="stat-value num-animate">65 <span>dari 457 responden</span></h3><p class="stat-desc">14,22%</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-red-light"><i class="fa-solid fa-user-slash"></i></div><div class="stat-info"><p class="stat-label">Belum Bekerja</p><h3 class="stat-value num-animate">28 <span>dari 457 responden</span></h3><p class="stat-desc">6,12%</p></div></div>
+                        </div>
+                        <div class="charts-grid">
+                            <div class="chart-card flex-1"><div class="card-header-flex"><h3 class="card-title">Status Keberlanjutan Studi dan Pekerjaan</h3></div><div class="canvas-container donut-container"><canvas id="tracerDonutChart"></canvas><div class="donut-center-text"><strong>457</strong><span>Responden</span></div></div></div>
+                            <div class="chart-card flex-1"><div class="card-header-flex"><h3 class="card-title">Waktu Tunggu Mendapatkan Pekerjaan Pertama</h3></div><div class="canvas-container"><canvas id="waitingTimeChart"></canvas></div></div>
+                        </div>
+                        <div class="charts-grid">
+                            <div class="chart-card flex-1"><div class="card-header-flex"><h3 class="card-title">Kesesuaian Pekerjaan dengan Bidang Studi</h3><div class="custom-legend" style="flex-direction:column;align-items:flex-start;gap:8px;"><div class="legend-item"><div class="dot dot-green"></div> Sesuai <strong style="margin-left:10px;color:#1e293b;">85,1%</strong></div><div class="legend-item"><div class="dot dot-orange"></div> Cukup Sesuai <strong style="margin-left:10px;color:#1e293b;">11,5%</strong></div><div class="legend-item"><div class="dot dot-red"></div> Tidak Sesuai <strong style="margin-left:10px;color:#1e293b;">2,4%</strong></div></div></div><div class="canvas-container donut-container"><canvas id="kesesuaianDonutChart"></canvas><div class="donut-center-text"><strong>85,1%</strong><span>Sesuai</span></div></div></div>
+                            <div class="chart-card flex-1"><div class="card-header-flex"><h3 class="card-title">Kepuasan Pengguna Lulusan (Employer Satisfaction)</h3><span style="font-size:14px;font-weight:700;color:var(--primary);">4,32 / 5</span></div><div class="canvas-container"><canvas id="satisfactionChart"></canvas></div><div style="text-align:center;margin-top:8px;font-size:12px;color:var(--text-muted);">Skala 1-5 (1: Sangat Tidak Puas, 5: Sangat Puas)</div></div>
+                        </div>
+                        <div class="stats-grid jp-stats-3">
+                            <div class="stat-card" style="align-items:center;"><div class="stat-icon bg-orange-light"><i class="fa-solid fa-location-dot"></i></div><div class="stat-info"><p class="stat-label">Lokasi Terbanyak</p><h3 class="stat-value" style="font-size:18px;">Jawa Timur</h3></div></div>
+                            <div class="stat-card" style="align-items:center;"><div class="stat-icon bg-blue-light"><i class="fa-solid fa-code"></i></div><div class="stat-info"><p class="stat-label">Jenis Pekerjaan Terbanyak</p><h3 class="stat-value" style="font-size:18px;">Software Developer</h3></div></div>
+                            <div class="stat-card" style="align-items:center;"><div class="stat-icon bg-green-light"><i class="fa-solid fa-school"></i></div><div class="stat-info"><p class="stat-label">Sektor Terbanyak</p><h3 class="stat-value" style="font-size:18px;">Pendidikan</h3></div></div>
+                        </div>
+                        <div class="table-card">
+                            <div class="card-header-flex"><h3 class="card-title">Detail Responden</h3><button class="btn-outline-blue" style="margin:0;">Lihat Semua <i class="fa-solid fa-arrow-right"></i></button></div>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead><tr><th>Tahun Lulus</th><th>Jumlah Lulusan</th><th>Responden</th><th>Tingkat Responden</th><th>Bekerja</th><th>Melanjutkan Studi</th><th>Belum Bekerja</th></tr></thead>
+                                    <tbody>
+                                        <tr><td><strong>2023</strong></td><td>214</td><td>152</td><td><span class="badge badge-green">71,0%</span></td><td>112</td><td>22</td><td>10</td></tr>
+                                        <tr><td><strong>2022</strong></td><td>218</td><td>158</td><td><span class="badge badge-green">72,5%</span></td><td>118</td><td>24</td><td>9</td></tr>
+                                        <tr><td><strong>2021</strong></td><td>210</td><td>147</td><td><span class="badge badge-orange">70,0%</span></td><td>109</td><td>19</td><td>9</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================== -->
+                <!-- Halaman 8: LAPORAN                                          -->
+                <!-- ========================================================== -->
+                <div id="view-laporan" class="view-section">
+                    <header class="top-header">
+                        <div class="header-left"><h1>Laporan &amp; Ekspor Data</h1><p>Unsur laporan komprehensif dalam berbagai format untuk keperluan analisis, presentasi, dan pengambilan keputusan.</p></div>
+                        <div class="header-right">
+                            <button class="btn-outline-blue" id="unduhLaporanBtn"><i class="fa-solid fa-download"></i> Unduh Laporan</button>
+                            <div class="header-actions">
+                                <div class="user-profile" id="userProfile8">
+                                    <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                                    <span class="user-name">Admin PT</span>
+                                    <i class="fa-solid fa-chevron-down" style="font-size:10px; color:var(--text-muted); cursor:pointer;"></i>
+                                    <div class="dropdown-menu"><a href="#" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="dashboard-body">
+                        <div class="stats-grid">
+                            <div class="stat-card"><div class="stat-icon bg-blue-light"><i class="fa-solid fa-file-lines"></i></div><div class="stat-info"><p class="stat-label">Total Laporan Dibuat</p><h3 class="stat-value num-animate">24</h3><p class="stat-trend positive"><i class="fa-solid fa-arrow-trend-up"></i> +20%</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-green-light"><i class="fa-solid fa-download"></i></div><div class="stat-info"><p class="stat-label">Total Unduhan</p><h3 class="stat-value num-animate">152</h3><p class="stat-trend positive"><i class="fa-solid fa-arrow-trend-up"></i> +18%</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-orange-light"><i class="fa-solid fa-users"></i></div><div class="stat-info"><p class="stat-label">Pengguna Aktif</p><h3 class="stat-value num-animate">38</h3><p class="stat-trend positive"><i class="fa-solid fa-arrow-trend-up"></i> +11%</p></div></div>
+                            <div class="stat-card"><div class="stat-icon bg-purple-light" style="background:#f3e8ff;color:#a855f7;"><i class="fa-solid fa-hard-drive"></i></div><div class="stat-info"><p class="stat-label">Ukuran Data</p><h3 class="stat-value num-animate">1,48 <span>GB</span></h3><p class="stat-desc">Total data tersimpan</p></div></div>
+                        </div>
+                        <div class="charts-grid">
+                            <div class="chart-card flex-2"><div class="card-header-flex"><h3 class="card-title">Tren Pembuatan &amp; Unduhan Laporan (2025)</h3><div class="custom-legend"><div class="legend-item"><div class="dot dot-blue"></div> Laporan Dibuat</div><div class="legend-item"><div class="dot dot-green"></div> Laporan Unduh</div></div></div><div class="canvas-container"><canvas id="laporanTrendChart"></canvas></div></div>
+                            <div class="chart-card flex-1"><div class="card-header-flex"><h3 class="card-title">Distribusi Jenis Laporan</h3></div><div class="canvas-container donut-container"><canvas id="laporanDonutChart"></canvas><div class="donut-center-text"><strong>24</strong><span>Total</span></div></div></div>
+                        </div>
+                        <div class="table-card">
+                            <div class="card-header-flex"><h3 class="card-title">Daftar Laporan Terbaru</h3><button class="btn-outline-blue" style="margin:0;">Lihat Semua Laporan <i class="fa-solid fa-arrow-right"></i></button></div>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead><tr><th>Nama Laporan</th><th>Jenis Laporan</th><th>Periode</th><th>Tanggal Dibuat</th><th>Dibuat Oleh</th><th class="text-center">Aksi</th></tr></thead>
+                                    <tbody>
+                                        <tr><td><strong>Kebutuhan Industri Sektor Teknologi Informasi</strong></td><td><span class="badge badge-blue">Kebutuhan Industri</span></td><td>Q1 2026</td><td>15 Mei 2026</td><td>Admin PT</td><td class="text-center"><a href="#" class="btn-detail btn-download-report" data-report="Kebutuhan Industri Sektor Teknologi Informasi"><i class="fa-solid fa-download"></i></a></td></tr>
+                                        <tr><td><strong>Analisis Gap Kompetensi 2025</strong></td><td><span class="badge badge-orange">Analisis Gap</span></td><td>2025</td><td>10 Mei 2026</td><td>Dosen / Prodi</td><td class="text-center"><a href="#" class="btn-detail btn-download-report" data-report="Analisis Gap Kompetensi 2025"><i class="fa-solid fa-download"></i></a></td></tr>
+                                        <tr><td><strong>Future Skills Forecasting 2025–2030</strong></td><td><span class="badge badge-green">Future Skills</span></td><td>2025-2030</td><td>5 Mei 2026</td><td>Admin PT</td><td class="text-center"><a href="#" class="btn-detail btn-download-report" data-report="Future Skills Forecasting 2025-2030"><i class="fa-solid fa-download"></i></a></td></tr>
+                                        <tr><td><strong>Rekomendasi Kurikulum Prodi SI</strong></td><td><span class="badge badge-purple" style="background:#f3e8ff;color:#a855f7;">Rekomendasi Kurikulum</span></td><td>2026/2027</td><td>28 Apr 2026</td><td>Dosen / Prodi</td><td class="text-center"><a href="#" class="btn-detail btn-download-report" data-report="Rekomendasi Kurikulum Prodi SI"><i class="fa-solid fa-download"></i></a></td></tr>
+                                        <tr><td><strong>Tracer Study Lulusan 2021-2023</strong></td><td><span class="badge badge-blue">Tracer Study</span></td><td>2021-2023</td><td>20 Apr 2026</td><td>Admin PT</td><td class="text-center"><a href="#" class="btn-detail btn-download-report" data-report="Tracer Study Lulusan 2021-2023"><i class="fa-solid fa-download"></i></a></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="chart-card">
+                            <div class="card-header-flex"><h3 class="card-title">Ekspor Laporan</h3><div class="custom-legend" style="gap:20px;"><span class="badge badge-blue"><i class="fa-solid fa-file-pdf"></i> PDF</span><span class="badge badge-orange"><i class="fa-solid fa-file-word"></i> DOCX</span><span class="badge badge-green"><i class="fa-solid fa-file-powerpoint"></i> PPTX</span></div></div>
+                            <div style="display:flex; gap:20px; flex-wrap:wrap; align-items:center; margin-top:8px;">
+                                <div style="display:flex; gap:12px; align-items:center;"><input type="checkbox" id="includeChart" checked /><label for="includeChart" style="font-size:12px; color:var(--text-muted);">Sertakan visualisasi &amp; grafik</label></div>
+                                <div style="display:flex; gap:12px; align-items:center;"><input type="checkbox" id="includeSummary" checked /><label for="includeSummary" style="font-size:12px; color:var(--text-muted);">Sertakan ringkasan eksekutif</label></div>
+                                <button class="btn-primary" id="eksporSekarangBtn" style="width:auto; padding:10px 24px; margin:0; background:var(--primary);"><i class="fa-solid fa-file-export"></i> Ekspor Sekarang</button>
+                            </div>
+                        </div>
+                        <div style="font-size:11px; color:var(--text-muted); text-align:center; padding:12px; border-top:1px solid var(--border); margin-top:8px;">
+                            Data bersumber dari JobStreet, LinkedIn, Glints, Karir.com, BPS, dan WEF Future of Jobs Report 2023.<br />&copy; 2024 C-DFS Universitas Negeri Malang. All rights reserved.
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fa-solid fa-check-circle"></i>
+        <span id="toastMessage">Berhasil diunduh!</span>
+    </div>
+
+    <!-- ================================================================
+    JAVASCRIPT (semua fungsi terintegrasi)
+    ================================================================ -->
+    
+
+    <script src="js/app.js"></script>
+</body>
+</html>
